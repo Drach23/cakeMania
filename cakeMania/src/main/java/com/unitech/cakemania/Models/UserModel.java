@@ -2,6 +2,8 @@ package com.unitech.cakemania.Models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "user")
 public class UserModel {
@@ -14,6 +16,11 @@ public class UserModel {
     private String email;
     private String password;
     private String phone;
+
+    // Relación OneToMany con UserAddressModel
+    // TODO: 22/01/2024 añadir que los elementos no sean nulos
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserAddressModel> addresses;
 
     public Long getId() {
         return id;
