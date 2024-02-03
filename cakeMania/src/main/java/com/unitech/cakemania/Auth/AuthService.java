@@ -2,7 +2,7 @@ package com.unitech.cakemania.Auth;
 
 import com.unitech.cakemania.Jwt.JwtService;
 import com.unitech.cakemania.User.Role;
-import com.unitech.cakemania.Models.UserModel;
+import com.unitech.cakemania.Model.UserModel;
 import com.unitech.cakemania.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

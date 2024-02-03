@@ -1,4 +1,4 @@
-package com.unitech.cakemania.Models;
+package com.unitech.cakemania.Model;
 
 import com.unitech.cakemania.User.Role;
 import jakarta.persistence.*;
@@ -18,6 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name="user")
 public class UserModel implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,14 +27,18 @@ public class UserModel implements UserDetails {
     private String name;
     private String lastName;
     private String email;
+    @Basic
+    @Column(nullable = false)
     private String username;
+    @Basic
+    @Column(nullable = false)
     private String password;
     private String phone;
     @Enumerated(EnumType.STRING)
     Role role;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    /*@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserAddressModel> addresses;
-
+*/
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority((role.name())));
@@ -41,7 +46,7 @@ public class UserModel implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return this.username;
     }
 
     @Override
