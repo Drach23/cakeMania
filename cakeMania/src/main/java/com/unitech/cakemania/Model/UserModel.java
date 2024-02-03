@@ -31,7 +31,6 @@ public class UserModel implements UserDetails {
     @Column(nullable = false)
     private String username;
     @Basic
-    @Column(nullable = false)
     private String password;
     private String phone;
     @Enumerated(EnumType.STRING)
@@ -44,10 +43,6 @@ public class UserModel implements UserDetails {
         return List.of(new SimpleGrantedAuthority((role.name())));
     }
 
-    @Override
-    public String getUsername() {
-        return this.username;
-    }
 
     @Override
     public boolean isAccountNonExpired() {
