@@ -35,9 +35,8 @@ public class UserModel implements UserDetails {
     private String phone;
     @Enumerated(EnumType.STRING)
     Role role;
-    /*@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserAddressModel> addresses;
-*/
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority((role.name())));
