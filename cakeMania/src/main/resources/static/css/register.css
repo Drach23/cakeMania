@@ -180,6 +180,25 @@ header .logo h1 a{
     color: yellow;
     text-align: center;
   }
+
+  .login-section {
+    margin-top: 10px;
+    text-align: center; 
+}
+
+.login-section p {
+    font-size: 20px; 
+}
+
+.login-section a {
+    color: #ffbc0f; 
+    text-decoration: none;
+}
+
+.login-section a:hover {
+    text-decoration: underline;
+}
+
   /*:::::Footer section:::::*/
 
   body,html {
